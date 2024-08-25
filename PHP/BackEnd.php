@@ -2,42 +2,42 @@
 
 $result="";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Check if the request method is POST
-    $num1 = $_POST['num1']; // Get the first number
-    $num2 = $_POST['num2']; // Get the second number
-    $opc =  $_POST['opc']; 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Verifica o metodo post
+    $num1 = $_POST['num1']; // primeiro número
+    $num2 = $_POST['num2']; // segundo número
+    $opc =  $_POST['opc']; //terceiro número
 
 
     
 
-    switch($opc)
+    switch($opc) // escolha dada pela variavel em STR para saber qual operação será executada
     
-    { // Switch based on the selected operation
+    { 
         case 'mais'  : 
             $result = $num1 + $num2; 
-             // Display the result
-            break; // If the operation is addition
+            
+            break; //caso a operação seja de adição, esse será o caso
 
             
             
             
         
         case 'menos':
-            $result = $num1 - $num2; // Perform subtraction
+            $result = $num1 - $num2; // o mesmo serve para a subtração e as demais operações
            
             break;
         
         case 'vezes':
-            $result = $num1 * $num2; // Perform multiplication
+            $result = $num1 * $num2; 
            
             break;
 
         case 'divisao':
             if ($num2 != 0) {
-                $result = $num1 / $num2; // Perform division
+                $result = $num1 / $num2; 
                 
             } else {
-                echo "Não é possível dividir por zero"; // Handle division by zero
+                echo "Não é possível dividir por zero"; // Mostra um caso em que o divisor seja diferente de zero, caso seja igual, o código exibe uma mensagem de erro
             }
             break;
         }
@@ -53,14 +53,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Check if the request method is P
     <title>Calculadora</title>
 </head>
 <body>
-<form method="post"> <!-- Form to submit data -->
-    Número 1: <input type="number" name="num1" required><br><br> <!-- First number input -->
-    Número 2: <input type="number" name="num2" required><br><br>  <!-- Second number input -->
+<form method="post"> <!-- Formulario para obeter os dados -->
+    Número 1: <input type="number" name="num1" required><br><br> <!-- input do número 1 -->
+    Número 2: <input type="number" name="num2" required><br><br>  <!-- input 2  -->
 
     <label for="opc">Escolha a operação:</label>
-    <select name="opc" required> <!-- Corrected name attribute for the select element -->
+    <select name="opc" required> <!-- onde é gerado a variavel opc para o Switch pegar as operações-->
         <optgroup label="Operações:">
-            <option value="mais" name="mais">+</option>
+            <option value="mais" name="mais">+</option> <!--nomes e valores com qual será a operação realizada-->
             <option value="menos"  name="menos">-</option>
 
             <option value="vezes"  name="vezes">*</option>
@@ -70,8 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Check if the request method is P
         </optgroup>
     </select>
     <br><br>
-    <input type="submit" value="Resultado"> <!-- Submit button -->
+    <input type="submit" value="Resultado"> <!--resultado -->
 </form>
-<?php echo $result ?>
+<?php echo $result ?> <!--mostra o resultado da operação selecionada-->
 </body>
 </html>
