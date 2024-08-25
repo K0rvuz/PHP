@@ -3,10 +3,10 @@
  
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // Verifica se o método de requisição é POST
-    $num1 = $_POST['num1']; // Obtém o primeiro número
-    $num2 = $_POST['num2']; // Obtém o segundo número
+    $num1 = $_POST['num1']; // Obtém o dividendo
+    $num2 = $_POST['num2']; // Obtém o divisor
    
-while ($num2!=0){
+while ($num2!=0){ // estrutura de repetição para enquanto o divisor ser diferente de zero (por razões matemáticas) o código seguir normalmente
     $resultado = $num1/$num2 ;
     break;
    
@@ -26,15 +26,15 @@ while ($num2!=0){
 </head>
 <body>
 <form method="post"> <!-- formulário para pegar o valor dos números -->
-    Número 1: <input type="number" name="num1" required><br><br> <!-- input do primeiro número-->
-    Número 2: <input type="number" name="num2" required><br><br>  <!-- input do segundo número -->
+    Número 1: <input type="number" name="num1" required><br><br> <!-- input do dividendo-->
+    Número 2: <input type="number" name="num2" required><br><br>  <!-- input do divisor -->
 
     <br><br>
     <input type="submit" value="Resultado"> <!--botão de resultado -->
 </form>
 
 <?php
-if ($resultado > 10) {
+if ($resultado > 10) { // estrutura para saber se o resultado é maior, menor ou igual a dez. 
     echo "$resultado é maior que 10";
     
     } else if  ($resultado < 10) {
